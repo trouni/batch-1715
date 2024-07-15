@@ -14,17 +14,19 @@ class PatientRepository
     @patients.find { |patient| patient.id == id.to_i }
   end
 
-  def save(patient)
+  def create(patient)
     patient.id = @last_id + 1
-    add_patient_to_repo(patient)
+    add_to_repo(patient)
     save_csv
   end
 
   private
 
-  def add_patient_to_repo(patient)
+  def add_to_repo(patient)
+    # add a patient to the repository
     @patients << patient
-    @last_id = patient.id # update the @last_id to match the id of the last patient added
+    # update the @last_id to match the id of that new patient
+    @last_id = patient.id
   end
 
   def load_csv
@@ -35,7 +37,7 @@ class PatientRepository
         cured: row['cured'] == 'true',
         # room: @room_repository.find(row['room_id'].to_i) # we need an instance of Room
       )
-      add_patient_to_repo(patient)
+      add_to_repo(patient)
     end
   end
 
