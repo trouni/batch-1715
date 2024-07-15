@@ -4,7 +4,7 @@ class Room
 
   def initialize(attributes = {})
     @id = attributes[:id].to_i
-    @capacity = attributes[:capacity] || 0
+    @capacity = attributes[:capacity].to_i || 0
     @patients = attributes[:patients] || []
   end
 
