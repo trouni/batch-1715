@@ -10,3 +10,6 @@
 [submodule "lectures/rails-openai"]
 	path = lectures/rails-openai
 	url = git@github.com:trouni/rails-openai-1715
+[submodule "lectures/rails-products-ai"]
+	path = lectures/rails-products-ai
+	url = git@github.com:trouni/rails-products-ai-1715
